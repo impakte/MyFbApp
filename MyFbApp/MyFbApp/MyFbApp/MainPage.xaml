@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MyFbApp.MainPage">
+
+    <StackLayout Orientation="Vertical">
+
+        <Label Text="Orange Test App C#"
+           FontSize="66"
+           TextColor="Black"/>
+
+        <Button Text="Se connecter avec Facebook"
+            TextColor="White"
+            BackgroundColor="#01579B"
+            Font="Bold"
+            FontSize="26"
+            Clicked="LoginWithFacebook_Clicked"/>
+
+    </StackLayout>
+
+</ContentPage>

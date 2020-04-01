@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ViewModel="clr-namespace:MyFbApp.ViewModel"
+             x:Class="MyFbApp.View.FacebookPostPage">
+    
+    <ContentPage.Content>
+        <StackLayout x:Name="MainStackLayout">
+            <Label x:Name="LabelMessage"
+                   FontSize="48"/>
+            <Label x:Name="LabelDatePost"
+                   FontSize="20"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Center"/>
+            
+            <ListView x:Name="CommentsView"
+                      ItemsSource="{Binding Comments}"
+                      HasUnevenRows ="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Height="100">
+                            <StackLayout BackgroundColor="#eee"
+                                         Orientation="Vertical"
+                                         Margin="0,10,0,10">
+                                <Label Text="{Binding Message}" 
+                                       HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding Created_time}" 
+                                       HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding User}" 
+                                       HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Entry x:Name="PostComment"
+                   Text="Poster une réponse">
+            </Entry>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

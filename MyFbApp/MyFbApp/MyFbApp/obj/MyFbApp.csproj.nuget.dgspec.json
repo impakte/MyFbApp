@@ -1,0 +1,91 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Antoine\\Desktop\\Project Orange\\MyFbApp\\MyFbApp\\MyFbApp\\MyFbApp\\MyFbApp.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Antoine\\Desktop\\Project Orange\\MyFbApp\\MyFbApp\\MyFbApp\\MyFbApp\\MyFbApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Antoine\\Desktop\\Project Orange\\MyFbApp\\MyFbApp\\MyFbApp\\MyFbApp\\MyFbApp.csproj",
+        "projectName": "MyFbApp",
+        "projectPath": "C:\\Users\\Antoine\\Desktop\\Project Orange\\MyFbApp\\MyFbApp\\MyFbApp\\MyFbApp\\MyFbApp.csproj",
+        "packagesPath": "C:\\Users\\Antoine\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Antoine\\Desktop\\Project Orange\\MyFbApp\\MyFbApp\\MyFbApp\\MyFbApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Antoine\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "AsyncAwaitBestPractices.MVVM": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "MvvmLightLibs": {
+              "target": "Package",
+              "version": "[5.4.1.1, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "Xamarin.Auth": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            },
+            "Xamarin.Essentials": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[4.2.0.709249, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
