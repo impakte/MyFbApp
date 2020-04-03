@@ -9,30 +9,18 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using MyFbApp.Model;
 using System.Net.Http.Headers;
-using Xamarin.Auth;
 
 namespace MyFbApp.Services
 {
     class FacebookServices
     {
-        private readonly string ClientId = "545621829700082";
-
-
-        /*public async Task<string> GetFacebookToken()
-        {
-            OAuth2Authenticator _auth = new OAuth2Authenticator(
-                    ClientId,
-                    "email",
-                    new Uri("https://www.facebook.com/dialog/oauth/"),
-                    new Uri("https://www.facebook.com/connect/login_success.html"));
-
-        }*/
-
-        public async Task<FacebookProfile> GetFacebookProfileAsync(string accessToken)
+        private string _accessToken;
+       
+        public async Task<FacebookProfile> GetFacebookProfileAsync()
         {
             var requestUrl =
                 "https://graph.facebook.com/me/?fields=name,picture,work,website,religion,location,locale,link,cover,age_range,birthday,devices,email,first_name,last_name,gender,hometown,is_verified,languages&access_token="
-                + accessToken;
+                + _accessToken;
 
             var httpClient = new HttpClient();
 
@@ -43,10 +31,10 @@ namespace MyFbApp.Services
             return facebookProfile;
         }
 
-        public async Task<FacebookUserPosts> GetFacebookUserPosts(string accessToken)
+        public async Task<FacebookUserPosts> GetFacebookUserPosts()
         {
             var requestUrl = "https://graph.facebook.com/me/posts?access_token="
-                + accessToken;
+                + _accessToken;
 
             var httpClient = new HttpClient();
 
@@ -57,9 +45,9 @@ namespace MyFbApp.Services
             return facebookUserPosts;
         }
 
-            public async Task<FacebookPostComments> GetFacebookPostCommentPost(string Id, string accessToken)
+            public async Task<FacebookPostComments> GetFacebookPostCommentPost(string Id)
         {
-            var requestUrl = "https://graph.facebook.com/" + Id + "/comments?access_token=" + accessToken;
+            var requestUrl = "https://graph.facebook.com/" + Id + "/comments?access_token=" + _accessToken;
 
             var httpClient = new HttpClient();
 
@@ -68,6 +56,11 @@ namespace MyFbApp.Services
             var facebookpostcomments = JsonConvert.DeserializeObject<FacebookPostComments>(userJson);
 
             return facebookpostcomments;
+        }
+
+        public void SetAccessToken(string Token)
+        {
+            _accessToken = Token;
         }
     }
 }

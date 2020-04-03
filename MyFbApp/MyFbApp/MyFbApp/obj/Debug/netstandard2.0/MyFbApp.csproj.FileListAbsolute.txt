@@ -26,4 +26,5 @@ C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp\bin\Debu
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp\bin\Debug\netstandard2.0\MyFbApp.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp\bin\Debug\netstandard2.0\ref\MyFbApp.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp\bin\Debug\netstandard2.0\MyFbApp.pdb
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp\obj\Debug\netstandard2.0\View\LoginPage.xaml.g.cs
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp\obj\Debug\netstandard2.0\XamlC.stamp

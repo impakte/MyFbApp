@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MyFbApp.View;
 
 namespace MyFbApp
 {
@@ -13,7 +14,7 @@ namespace MyFbApp
             ViewModel.Bootstrap.Instance.Setup();
 
             //MainPage = new MainPage();
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new LoginPage());
 
         }
 

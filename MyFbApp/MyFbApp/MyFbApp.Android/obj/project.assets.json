@@ -2201,6 +2201,7 @@
       "MyFbApp >= 1.0.0",
       "Newtonsoft.Json >= 12.0.3",
       "Xamarin.Android.Support.Core.Utils >= 28.0.0.1",
+      "Xamarin.Auth >= 1.7.0",
       "Xamarin.Essentials >= 1.2.0",
       "Xamarin.Forms >= 4.2.0.709249"
     ]
@@ -2262,6 +2263,10 @@
           "Xamarin.Android.Support.Core.Utils": {
             "target": "Package",
             "version": "[28.0.0.1, )"
+          },
+          "Xamarin.Auth": {
+            "target": "Package",
+            "version": "[1.7.0, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",

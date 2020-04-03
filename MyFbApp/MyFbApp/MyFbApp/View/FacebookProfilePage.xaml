@@ -6,9 +6,9 @@
              xmlns:ViewModel="clr-namespace:MyFbApp.ViewModel"
              mc:Ignorable="d"
              x:Class="MyFbApp.View.FacebookProfilePage">
-    
+
     <ContentPage.BindingContext>
-            <ViewModel:FacebookViewModel/>
+        <ViewModel:FacebookViewModel/>
     </ContentPage.BindingContext>
 
     <StackLayout x:Name="MainStackLayout"

@@ -572,7 +572,6 @@ C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\fad610fe07cba0e8b1f6e382e5afb1f3428fbdd4.stamp
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\56d98f7350a35defd119b397a8357cdfceae932d.stamp
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\ed6d95e1248ed54df50aeda67f53fbe2dc879690.stamp
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\70e49b104d847476d3c81e308dbfa1d34e8cff0f.stamp
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\d8348bfbbe148aab66f5be76d428de0c7d25efd2.flata
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\f3d68953ea35a27f98fc6695a8f6d9d5ff887cf6.flata
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\1a0a089bef255a2a0a0debf47e6bdd8652055f0b.flata
@@ -584,7 +583,6 @@ C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\fad610fe07cba0e8b1f6e382e5afb1f3428fbdd4.flata
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\56d98f7350a35defd119b397a8357cdfceae932d.flata
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\ed6d95e1248ed54df50aeda67f53fbe2dc879690.flata
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\70e49b104d847476d3c81e308dbfa1d34e8cff0f.flata
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\compiled.flata
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\R.txt
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\R.cs.flag
@@ -626,7 +624,6 @@ C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\Newtonsoft.Json.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\System.Core.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\System.dll
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\System.Json.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\System.Numerics.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\System.Numerics.Vectors.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\System.Runtime.dll
@@ -669,7 +666,6 @@ C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\Xamarin.Android.Support.Vector.Drawable.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\Xamarin.Android.Support.VersionedParcelable.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\Xamarin.Android.Support.ViewPager.dll
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\Xamarin.Auth.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\Xamarin.Essentials.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\Xamarin.Forms.Core.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\Xamarin.Forms.Platform.Android.dll
@@ -713,7 +709,6 @@ C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\GalaSoft.MvvmLight.dll.mdb
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\GalaSoft.MvvmLight.Extras.dll.mdb
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\GalaSoft.MvvmLight.Platform.dll.mdb
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\Xamarin.Auth.dll.mdb
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\link.flag
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\AsyncAwaitBestPractices.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\AsyncAwaitBestPractices.MVVM.dll
@@ -750,7 +745,6 @@ C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\System.Globalization.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\System.IO.Compression.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\System.IO.Compression.FileSystem.dll
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\System.Json.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\System.Linq.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\System.Linq.Expressions.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\System.Net.Http.dll
@@ -807,8 +801,6 @@ C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\Xamarin.Android.Support.Vector.Drawable.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\Xamarin.Android.Support.VersionedParcelable.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\Xamarin.Android.Support.ViewPager.dll
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\Xamarin.Auth.dll
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\Xamarin.Auth.dll.mdb
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\Xamarin.Essentials.dll
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\Xamarin.Essentials.pdb
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\Xamarin.Forms.Core.dll
@@ -887,8 +879,6 @@ C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\android\support\customtabs\R.java
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\mono\android\support\v13\view\inputmethod\InputConnectionCompat_OnCommitContentListenerImplementor.java
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\mono\android\support\v13\view\DragStartHelper_OnDragStartListenerImplementor.java
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md51ecadffdc85c92889fb18c347bb5af96\CustomTabActivityHelper.java
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md51ecadffdc85c92889fb18c347bb5af96\ServiceConnection.java
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\android\support\coordinatorlayout\R.java
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\mono\android\support\transition\Transition_TransitionListenerImplementor.java
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\mono\android\support\design\widget\AppBarLayout_OnOffsetChangedListenerImplementor.java
@@ -1077,16 +1067,6 @@ C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5f92e0daf340890c9667469657ee2ece8\FrameRenderer.java
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5f92e0daf340890c9667469657ee2ece8\ImageRenderer.java
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5f92e0daf340890c9667469657ee2ece8\LabelRenderer.java
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\AndroidAccountStore_SecretAccount.java
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\CustomTabsActionsBroadcastReceiver.java
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\FormAuthenticatorActivity.java
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\FormAuthenticatorActivity_State.java
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebAuthenticatorActivity.java
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebAuthenticatorActivity_Client.java
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebAuthenticatorActivity_State.java
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebAuthenticatorNativeBrowserActivity.java
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebAuthenticatorNativeBrowserActivity_State.java
-C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebViewActivity.java
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5dcb6eccdc824e0677ffae8ccdde42930\CustomTabsServiceConnectionImpl.java
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5dcb6eccdc824e0677ffae8ccdde42930\KeepAliveService.java
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5423e3a95c357eb7d6aad61b4f54abbd4\RecyclerViewScrollListener.java
@@ -1118,3 +1098,23 @@ C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\70e49b104d847476d3c81e308dbfa1d34e8cff0f.stamp
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\flata\70e49b104d847476d3c81e308dbfa1d34e8cff0f.flata
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\System.Json.dll
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\Xamarin.Auth.dll
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\linksrc\Xamarin.Auth.dll.mdb
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\System.Json.dll
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\Xamarin.Auth.dll
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\assets\Xamarin.Auth.dll.mdb
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md51ecadffdc85c92889fb18c347bb5af96\CustomTabActivityHelper.java
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md51ecadffdc85c92889fb18c347bb5af96\ServiceConnection.java
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\AndroidAccountStore_SecretAccount.java
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\CustomTabsActionsBroadcastReceiver.java
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\FormAuthenticatorActivity.java
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\FormAuthenticatorActivity_State.java
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebAuthenticatorActivity.java
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebAuthenticatorActivity_Client.java
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebAuthenticatorActivity_State.java
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebAuthenticatorNativeBrowserActivity.java
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebAuthenticatorNativeBrowserActivity_State.java
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebViewActivity.java
