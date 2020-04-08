@@ -8,20 +8,37 @@ using AsyncAwaitBestPractices.MVVM;
 using MyFbApp.Model;
 using MyFbApp.Services;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
+using System;
+using GalaSoft.MvvmLight.Command;
+using MyFbApp.Navigation;
 
 namespace MyFbApp.ViewModel
 {
-    class FacebookViewModel : INotifyPropertyChanged
+    class FacebookViewModel : BaseViewModel, INotifyPropertyChanged
     {
         private FacebookProfile _facebookProfile;
         private FacebookUserPosts _facebookUserPosts;
         private string _facebookToken;
         private FacebookServices _facebookServices;
-        //public ICommand LoadTokenCommand { get; set; }
-        public ICommand LoadContent { get; set; }
-        public ICommand LoadTokenCommand { get; set; }
+        private readonly INavigationService _navigationService;
+        public ICommand NavigateCommand { get; set; }
 
         private IList<PostsData> posts;
+        private bool _isLoading;
+
+        public ICommand LoadContent { get; set; }
+        public ICommand GoToPostDetailsCommand => new AsyncCommand<PostsData>(GoToPostDetailCommandExecute);
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set
+            {
+                _isLoading = value;
+                OnPropertyChanged();
+            }
+        }
 
         public string FacebookToken
         {
@@ -63,8 +80,11 @@ namespace MyFbApp.ViewModel
             }
         }
 
-        public FacebookViewModel()
+        public FacebookViewModel(INavigationService navigationService)
         {
+            if (navigationService == null) throw new ArgumentNullException("navigationService");
+            _navigationService = navigationService;
+
             this.Posts = new ObservableCollection<PostsData>();
             this._facebookServices = SimpleIoc.Default.GetInstance<FacebookServices>();
             this.LoadContent = new AsyncCommand(() => SetFacebookProfileContent());
@@ -72,8 +92,10 @@ namespace MyFbApp.ViewModel
 
         public async Task SetFacebookProfileContent()
         {
+            IsLoading = true;
             await SetFacebookUserProfileAsync();
             await SetFacebookUserPostsAsync();
+            IsLoading = false;
         }
 
         public async Task SetFacebookUserProfileAsync()
@@ -87,18 +109,12 @@ namespace MyFbApp.ViewModel
             this.Posts = this._facebookUserPosts.Data;
         }
 
-        public string ExtractAccessTokenFromUrl(string url)
+        public async Task GoToPostDetailCommandExecute(PostsData Data)
         {
-            if (url.Contains("access_token") && url.Contains("&expires_in="))
-            {
-                var at = url.Replace("https://www.facebook.com/connect/login_success.html#access_token=", "");
-                var accessToken = at.Remove(at.IndexOf("&expires_in="));
-                accessToken = accessToken.Remove(accessToken.IndexOf("&data_access_expiration_time="));
-                return accessToken;
-            }
-
-            return string.Empty;
+            NavigateCommand = new RelayCommand(() => { _navigationService.NavigateTo(Locator.FacebookPostPage, Data); });
+            NavigateCommand.Execute(null);
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

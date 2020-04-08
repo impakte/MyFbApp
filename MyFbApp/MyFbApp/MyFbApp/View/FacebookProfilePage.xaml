@@ -7,45 +7,48 @@
              mc:Ignorable="d"
              x:Class="MyFbApp.View.FacebookProfilePage">
 
-    <ContentPage.BindingContext>
-        <ViewModel:FacebookViewModel/>
-    </ContentPage.BindingContext>
-
     <StackLayout x:Name="MainStackLayout"
-               Padding="8,30">
+               Padding="8,30"
+                 BackgroundColor="LightGray">
+        <ActivityIndicator IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
+            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
 
-        <StackLayout Orientation="Vertical">
-
-            <Label Text="{Binding FacebookProfile.Name, StringFormat='Utilisateur: {0:N}'}"
+        <Image x:Name="ProfilePicture"/>
+        <Label Text="{Binding FacebookProfile.Name, StringFormat='Utilisateur: {0:N}'}"
                TextColor="Black"
                Font="Bold"
-               FontSize="22"/>
+               FontSize="22"
+               HorizontalOptions="CenterAndExpand"/>
 
-            <ListView x:Name="PostsView"
+        <ListView x:Name="PostsView"
                           ItemsSource="{Binding Posts}"
                           ItemTapped="PostsView_ItemTapped"
-                          HasUnevenRows ="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell Height="100">
-                            <StackLayout BackgroundColor="#eee"
+                          HasUnevenRows ="True"
+                          BackgroundColor="LightGray">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Height="100">
+                        <StackLayout BackgroundColor="#eee"
                                          Orientation="Vertical"
                                          Margin="0,10,0,10">
-                                <Label Text="{Binding Message}" 
-                                       HorizontalOptions="StartAndExpand"/>
-                                <Label Text="{Binding Created_time}" 
+                            <Label Text="{Binding FacebookProfile.Name}"
+                                       FontSize="16"
                                        HorizontalOptions="CenterAndExpand"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                            <Label Text="{Binding Created_time}" 
+                                       FontSize="12"
+                                       HorizontalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding Message}" 
+                                       FontSize="20"
+                                       HorizontalOptions="StartAndExpand"/>
+                            <Button Text="Like"
+                                        HorizontalOptions="StartAndExpand"/>
 
-            <Label Text="{Binding FacebookUserPosts.Data}"
-                       TextColor="Black"
-                       FontSize="20"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-        </StackLayout>
 
     </StackLayout>
 </ContentPage>

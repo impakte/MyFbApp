@@ -2,6 +2,10 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MyFbApp.View;
+using MyFbApp.Navigation;
+using GalaSoft.MvvmLight.Ioc;
+using MyFbApp.Services;
+using GalaSoft.MvvmLight.Views;
 
 namespace MyFbApp
 {
@@ -10,12 +14,20 @@ namespace MyFbApp
         public App()
         {
             InitializeComponent();
-
             ViewModel.Bootstrap.Instance.Setup();
 
-            //MainPage = new MainPage();
-            MainPage = new NavigationPage(new LoginPage());
+            var nav = new NavigationService();
+            nav.Configure(Locator.LoginPage, typeof(LoginPage));
+            nav.Configure(Locator.FacebookPostPage, typeof(FacebookPostPage));
+            nav.Configure(Locator.FacebookProfilePage, typeof(FacebookProfilePage));
+            SimpleIoc.Default.Register<INavigationService>(() => nav);
 
+            var firstPage = new NavigationPage(new LoginPage());
+
+            nav.Initialize(firstPage);
+
+            //MainPage = new NavigationPage(new LoginPage());
+            MainPage = firstPage;
         }
 
         protected override void OnStart()

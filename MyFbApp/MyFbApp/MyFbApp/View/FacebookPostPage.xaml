@@ -22,16 +22,20 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell Height="100">
-                            <StackLayout BackgroundColor="#eee"
+                            <Frame x:Name="frame" CornerRadius="10" OutlineColor="Black"
+                   BackgroundColor="White" Padding="0" >
+                                <StackLayout BackgroundColor="White"
                                          Orientation="Vertical"
                                          Margin="0,10,0,10">
-                                <Label Text="{Binding Message}" 
-                                       HorizontalOptions="StartAndExpand"/>
-                                <Label Text="{Binding Created_time}" 
+                                    <Label Text="{Binding Message}"
+                                       FontSize="26"
+                                       HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Created_time}" 
                                        HorizontalOptions="CenterAndExpand"/>
-                                <Label Text="{Binding User}" 
+                                    <Label Text="{Binding User}" 
                                        HorizontalOptions="EndAndExpand"/>
-                            </StackLayout>
+                                </StackLayout>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

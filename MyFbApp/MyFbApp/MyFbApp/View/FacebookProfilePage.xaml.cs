@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MyFbApp.Model;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
 
 namespace MyFbApp.View
 {
@@ -22,14 +23,23 @@ namespace MyFbApp.View
         {
             InitializeComponent();
             BindingContext = this.viewModel = SimpleIoc.Default.GetInstance<FacebookViewModel>();
-            this.viewModel.LoadContent.Execute(null);
             Content = MainStackLayout;
+            ProfilePicture.Source = "http://scontent-cdg2-1.xx.fbcdn.net/v/t31.0-1/cp0/c15.0.50.50a/p50x50/10733713_10150004552801937_4553731092814901385_o.jpg?_nc_cat=1&_nc_sid=12b3be&_nc_ohc=kbRb-3obZ7MAX8abHIx&_nc_ht=scontent-cdg2-1.xx&oh=e51c3f7be4930957e49faf13a62ddcc7&oe=5EB2D8AC";
         }
 
-        private async void PostsView_ItemTapped(object sender, ItemTappedEventArgs e)
+        //OnNavigatedTo
+        private void PostsView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var content = e.Item as PostsData;
-            await Navigation.PushAsync(new FacebookPostPage(content));
+            var command = this.viewModel.GoToPostDetailsCommand;
+            command.Execute(content);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            
+            this.viewModel.LoadContent.Execute(null);
         }
     }
 }

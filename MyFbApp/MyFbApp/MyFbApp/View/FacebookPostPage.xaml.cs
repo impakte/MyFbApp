@@ -19,9 +19,6 @@ namespace MyFbApp.View
     {
         private readonly PostDetailViewModel viewModel;
 
-        PostsData data;
-        private PostsData Data { get { return data; } }
-
 
         public FacebookPostPage(PostsData fbpost)
         {
@@ -31,6 +28,12 @@ namespace MyFbApp.View
             this.viewModel.Id = fbpost.Id;
             LabelMessage.Text = fbpost.Message;
             LabelDatePost.Text = "Publié le :"  + fbpost.Created_time.ToString();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
             this.viewModel.LoadPostsCommand.Execute(null);
         }
     }

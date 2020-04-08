@@ -48,7 +48,7 @@ namespace MyFbApp.Services
             public async Task<FacebookPostComments> GetFacebookPostCommentPost(string Id)
         {
             var requestUrl = "https://graph.facebook.com/" + Id + "/comments?access_token=" + _accessToken;
-
+            //me/feed?fields=message,story,from,story_tags,comments.summary(true)
             var httpClient = new HttpClient();
 
             var userJson = await httpClient.GetStringAsync(requestUrl);
