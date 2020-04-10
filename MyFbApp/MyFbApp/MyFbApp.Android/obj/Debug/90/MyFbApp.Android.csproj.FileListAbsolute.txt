@@ -1118,3 +1118,10 @@ C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebAuthenticatorNativeBrowserActivity.java
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebAuthenticatorNativeBrowserActivity_State.java
 C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\android\src\md5538102cb7512c6dba0c04fe6c395414e\WebViewActivity.java
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\res\drawable\logo.png
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\res\mipmap-anydpi-v26\logo.png
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\res\mipmap-hdpi\logo.png
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\res\mipmap-mdpi\logo.png
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\res\mipmap-xhdpi\logo.png
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\res\mipmap-xxhdpi\logo.png
+C:\Users\Antoine\Desktop\Project Orange\MyFbApp\MyFbApp\MyFbApp\MyFbApp.Android\obj\Debug\90\res\mipmap-xxxhdpi\logo.png

@@ -12,6 +12,7 @@ using GalaSoft.MvvmLight.Views;
 using System;
 using GalaSoft.MvvmLight.Command;
 using MyFbApp.Navigation;
+using Xamarin.Forms;
 
 namespace MyFbApp.ViewModel
 {
@@ -30,7 +31,18 @@ namespace MyFbApp.ViewModel
         public ICommand LoadContent { get; set; }
         public ICommand GoToPostDetailsCommand => new AsyncCommand<PostsData>(GoToPostDetailCommandExecute);
 
-        public bool IsLoading
+        private bool _isRefreshing = false;
+        public bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            set
+            {
+                _isRefreshing = value;
+                OnPropertyChanged(nameof(IsRefreshing));
+            }
+        }
+
+        /*public bool IsLoading
         {
             get { return _isLoading; }
             set
@@ -38,6 +50,12 @@ namespace MyFbApp.ViewModel
                 _isLoading = value;
                 OnPropertyChanged();
             }
+        }*/
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set { Set( () => IsLoading, ref _isLoading, value); }
         }
 
         public string FacebookToken
@@ -115,6 +133,20 @@ namespace MyFbApp.ViewModel
             NavigateCommand.Execute(null);
         }
 
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    IsRefreshing = true;
+
+                    await SetFacebookUserPostsAsync();
+
+                    IsRefreshing = false;
+                });
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -122,5 +154,7 @@ namespace MyFbApp.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+
     }
 }
