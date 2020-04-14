@@ -16,86 +16,55 @@ using Xamarin.Forms;
 
 namespace MyFbApp.ViewModel
 {
-    class FacebookViewModel : BaseViewModel, INotifyPropertyChanged
+    class FacebookViewModel : BaseViewModel
     {
         private FacebookProfile _facebookProfile;
         private FacebookUserPosts _facebookUserPosts;
         private string _facebookToken;
         private FacebookServices _facebookServices;
         private readonly INavigationService _navigationService;
-        public ICommand NavigateCommand { get; set; }
-
-        private IList<PostsData> posts;
+        private IList<PostsData> _posts;
         private bool _isLoading;
 
         public ICommand LoadContent { get; set; }
+        public ICommand NavigateCommand { get; set; }
         public ICommand GoToPostDetailsCommand => new AsyncCommand<PostsData>(GoToPostDetailCommandExecute);
 
         private bool _isRefreshing = false;
         public bool IsRefreshing
         {
             get { return _isRefreshing; }
-            set
-            {
-                _isRefreshing = value;
-                OnPropertyChanged(nameof(IsRefreshing));
-            }
+            set { Set(ref _isRefreshing, value); }
         }
 
-        /*public bool IsLoading
+       public bool IsLoading
         {
             get { return _isLoading; }
-            set
-            {
-                _isLoading = value;
-                OnPropertyChanged();
-            }
-        }*/
-
-        public bool IsLoading
-        {
-            get { return _isLoading; }
-            set { Set( () => IsLoading, ref _isLoading, value); }
+            set { Set(ref _isLoading, value); }
         }
 
         public string FacebookToken
         {
             get { return _facebookToken; }
-            set
-            {
-                _facebookToken = value;
-                OnPropertyChanged();
-            }
+            set { Set(ref _facebookToken, value); }
         }
 
         public IList<PostsData> Posts
         {
-            get { return posts; }
-            set
-            {
-                posts = value;
-                OnPropertyChanged();
-            }
+            get { return _posts; }
+            set { Set(ref _posts, value); }
         }
 
         public FacebookProfile FacebookProfile
         {
             get { return _facebookProfile; }
-            set
-            {
-                _facebookProfile = value;
-                OnPropertyChanged();
-            }
+            set { Set(ref _facebookProfile, value); }
         }
 
         public FacebookUserPosts FacebookUserPosts
         {
             get { return _facebookUserPosts; }
-            set
-            {
-                _facebookUserPosts = value;
-                OnPropertyChanged();
-            }
+            set { Set(ref _facebookUserPosts, value); }
         }
 
         public FacebookViewModel(INavigationService navigationService)
@@ -147,14 +116,5 @@ namespace MyFbApp.ViewModel
                 });
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-
     }
 }

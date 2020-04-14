@@ -97,7 +97,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Logo_small.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyFbApp\MyFbApp.csproj">
       <Project>{4518FEF1-7271-4E72-A5D4-747D5D443375}</Project>

@@ -9,24 +9,19 @@ using AsyncAwaitBestPractices.MVVM;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Ioc;
 
-
 namespace MyFbApp.ViewModel
 {
-    public class PostDetailViewModel : INotifyPropertyChanged
+    public class PostDetailViewModel : BaseViewModel
     {
-        public ICommand LoadPostsCommand { get; set; }
+        
         private FacebookPostComments _facebookPostComments;
         private string _id;
         private FacebookServices _facebookServices;
-
+        public ICommand LoadPostsCommand { get; set; }
         public string Id
         {
             get { return _id; }
-            set 
-            {
-                _id = value;
-                OnPropertyChanged();
-            }
+            set { Set(ref _id, value); }
         }
 
         private IList<CommentData> _comments;
@@ -34,21 +29,13 @@ namespace MyFbApp.ViewModel
         public IList<CommentData> Comments
         {
             get { return _comments; }
-            set
-            {
-                _comments = value;
-                OnPropertyChanged();
-            }
+            set { Set(ref _comments, value); }
         }
 
         public FacebookPostComments FacebookPostComment
         {
             get { return _facebookPostComments; }
-            set
-            {
-                _facebookPostComments = value;
-                OnPropertyChanged();
-            }
+            set { Set(ref _facebookPostComments, value); }
         }
 
         public PostDetailViewModel()
@@ -64,13 +51,6 @@ namespace MyFbApp.ViewModel
 
             _facebookPostComments = await _facebookServices.GetFacebookPostCommentPost(Id);
             this.Comments = this._facebookPostComments.Data;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -13,25 +13,26 @@
             <local:InverseBoolConverter x:Key="ReverseBool" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    
     <StackLayout x:Name="MainStackLayout"
-               Padding="8,30"
-                 BackgroundColor="LightGray">
-        
+                BackgroundColor="White">
         <ActivityIndicator IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
             VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
-        
+
         <Image Source="Logo.png"
-               HorizontalOptions="CenterAndExpand"/>
-        
+               HorizontalOptions="CenterAndExpand"
+               IsVisible="{Binding IsLoading, Converter={StaticResource ReverseBool}}"/>
+
         <Label Text="{Binding FacebookProfile.Name, StringFormat='Utilisateur: {0:N}'}"
                TextColor="Black"
                Font="Bold"
                FontSize="22"
                HorizontalOptions="CenterAndExpand"
                IsVisible="{Binding IsLoading, Converter={StaticResource ReverseBool}}"/>
-        
-        <ListView x:Name="PostsView"
+        <StackLayout Padding="8,30"
+                 BackgroundColor="LightGray"
+                     IsVisible="{Binding IsLoading, Converter={StaticResource ReverseBool}}">
+
+            <ListView x:Name="PostsView"
                           ItemsSource="{Binding Posts}"
                           ItemTapped="PostsView_ItemTapped"
                           HasUnevenRows ="True"
@@ -41,28 +42,54 @@
                           IsRefreshing="{Binding IsRefreshing}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell Height="100">
-                            <StackLayout BackgroundColor="#eee"
-                                         Orientation="Vertical"
-                                         Margin="0,10,0,10">
-                                <Label Text="{Binding FacebookProfile.Name}"
-                                       FontSize="16"
-                                       HorizontalOptions="CenterAndExpand"/>
-                                <Label Text="{Binding Created_time}" 
-                                       FontSize="12"
-                                       HorizontalOptions="CenterAndExpand"/>
-                                <Label Text="{Binding Message}" 
-                                       FontSize="20"
-                                       HorizontalOptions="StartAndExpand"/>
-                                <Button Text="Like"
-                                        HorizontalOptions="StartAndExpand"/>
+                    <ViewCell Height="200">
+                        <Grid x:Name="controlGrid"
+                              Margin="0,10,0,10"
+                              BackgroundColor="White">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                            </StackLayout>
-                        </ViewCell>
+                            <Image Source="Logo_small.png"
+                                   HorizontalOptions="CenterAndExpand"
+                                    Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
+                            <Label Text="{Binding FacebookProfile.Name}"
+                                       FontSize="16"
+                                       HorizontalOptions="CenterAndExpand"
+                                    Grid.Row="0" Grid.Column="1"/>
+                            <Label Text="{Binding Created_time}" 
+                                       FontSize="9"
+                                       HorizontalOptions="CenterAndExpand"
+                                   Grid.Row="1" Grid.Column="1"/>
+                            <Label Text="{Binding Message}" 
+                                       FontSize="20"
+                                       HorizontalOptions="StartAndExpand"
+                                   Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"/>
+                            
+                            <Button Text="Like"
+                                    FontSize="6"
+                                        HorizontalOptions="StartAndExpand"
+                                    Grid.Row="4" Grid.Column="0"/>
+                            <Button Text="Commenter"
+                                    FontSize="6"
+                                        HorizontalOptions="StartAndExpand"
+                                    Grid.Row="4" Grid.Column="2"/>
+                        </Grid>
+                    </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
 
+        </StackLayout>
     </StackLayout>
 </ContentPage>
