@@ -15,8 +15,6 @@
     </ContentPage.Resources>
     <StackLayout x:Name="MainStackLayout"
                 BackgroundColor="White">
-        <ActivityIndicator IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
-            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
 
         <Image Source="Logo.png"
                HorizontalOptions="CenterAndExpand"
@@ -28,10 +26,11 @@
                FontSize="22"
                HorizontalOptions="CenterAndExpand"
                IsVisible="{Binding IsLoading, Converter={StaticResource ReverseBool}}"/>
+        <ActivityIndicator IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
+            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Color="Blue" Scale="0.5"/>
         <StackLayout Padding="8,30"
                  BackgroundColor="LightGray"
                      IsVisible="{Binding IsLoading, Converter={StaticResource ReverseBool}}">
-
             <ListView x:Name="PostsView"
                           ItemsSource="{Binding Posts}"
                           ItemTapped="PostsView_ItemTapped"
@@ -74,14 +73,16 @@
                                        FontSize="20"
                                        HorizontalOptions="StartAndExpand"
                                    Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"/>
-                            
+                                <Label Text="{Binding CommentsNumber, StringFormat='{0} commentaire'}"
+                                   FontSize="12"
+                                   Grid.Row="3" Grid.Column="2"/>
                             <Button Text="Like"
                                     FontSize="6"
-                                        HorizontalOptions="StartAndExpand"
+                                    HorizontalOptions="StartAndExpand"
                                     Grid.Row="4" Grid.Column="0"/>
                             <Button Text="Commenter"
                                     FontSize="6"
-                                        HorizontalOptions="StartAndExpand"
+                                        HorizontalOptions="EndAndExpand"
                                     Grid.Row="4" Grid.Column="2"/>
                         </Grid>
                     </ViewCell>

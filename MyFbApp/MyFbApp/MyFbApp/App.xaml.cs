@@ -6,6 +6,9 @@ using MyFbApp.Navigation;
 using GalaSoft.MvvmLight.Ioc;
 using MyFbApp.Services;
 using GalaSoft.MvvmLight.Views;
+using MyFbApp.Configuration;
+using MyFbApp.Sqlite;
+
 
 namespace MyFbApp
 {
@@ -21,12 +24,15 @@ namespace MyFbApp
             nav.Configure(Locator.FacebookPostPage, typeof(FacebookPostPage));
             nav.Configure(Locator.FacebookProfilePage, typeof(FacebookProfilePage));
             SimpleIoc.Default.Register<INavigationService>(() => nav);
+            
+            var configLoader = new ConfigurationLoader();
+            configLoader.LoadConfig();
+
+            var dbmanager = new DatabaseManager();
+            dbmanager.CreateTables();
 
             var firstPage = new NavigationPage(new LoginPage());
-
             nav.Initialize(firstPage);
-
-            //MainPage = new NavigationPage(new LoginPage());
             MainPage = firstPage;
         }
 

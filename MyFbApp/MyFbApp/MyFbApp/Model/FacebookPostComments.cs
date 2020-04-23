@@ -7,7 +7,7 @@ namespace MyFbApp.Model
     public class FacebookPostComments
     {
 
-        public CommentData[] Data { get; set; }
+        public List<CommentData> Data { get; set; }
 
         public PagingDataComment Paging { get; set; }
 

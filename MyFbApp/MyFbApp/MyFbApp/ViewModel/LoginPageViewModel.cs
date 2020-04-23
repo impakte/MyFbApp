@@ -9,27 +9,30 @@ using GalaSoft.MvvmLight.Views;
 using GalaSoft.MvvmLight.Command;
 using System.Windows.Input;
 using MyFbApp.Navigation;
+using MyFbApp.Configuration;
 
 namespace MyFbApp.ViewModel
 {
     class LoginPageViewModel
     {
         private readonly INavigationService _navigationService;
+        private readonly IConfiguration _config;
         public ICommand NavigateCommand { get; set; }
         public OAuth2Authenticator Authenticator;
 
-        public LoginPageViewModel(INavigationService navigationService)
+        public LoginPageViewModel(INavigationService navigationService, IConfiguration configuration)
         {
             if (navigationService == null) throw new ArgumentNullException("navigationService");
             _navigationService = navigationService;
+            if (configuration == null) throw new ArgumentNullException("Configuration");
+            _config = configuration;
 
             NavigateCommand = new RelayCommand(() => { _navigationService.NavigateTo(Locator.FacebookProfilePage); });
-
             Authenticator = new OAuth2Authenticator(
-                 "545621829700082",
-                 "email",
-                 new Uri("https://www.facebook.com/dialog/oauth/"),
-                 new Uri("https://www.facebook.com/connect/login_success.html"),
+                 _config.facebookAppId,
+                 _config.scope,
+                 new Uri(_config.facebookAuthUrl),
+                 new Uri(_config.facebookRedirectUrl),
                  null);
             Authenticator.Completed += OnAuthenticationCompleted;
             Authenticator.Error += OnAuthenticationFailed;

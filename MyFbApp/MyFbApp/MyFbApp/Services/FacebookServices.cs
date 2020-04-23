@@ -1,32 +1,28 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using MyFbApp.Model;
-using System.Net.Http.Headers;
 
 namespace MyFbApp.Services
 {
     class FacebookServices
     {
         private string _accessToken;
-       
+        private HttpClient _httpCLient = new HttpClient();
+
         public async Task<FacebookProfile> GetFacebookProfileAsync()
         {
             var requestUrl =
-                "https://graph.facebook.com/me/?fields=name,picture,work,website,religion,location,locale,link,cover,age_range,birthday,devices,email,first_name,last_name,gender,hometown,is_verified,languages&access_token="
+                "https://graph.facebook.com/me/?fields=name,picture,cover,age_range,birthday,email,first_name,last_name&access_token="
                 + _accessToken;
 
-            var httpClient = new HttpClient();
 
-            var userJson = await httpClient.GetStringAsync(requestUrl);
+            var userJson = await _httpCLient.GetStringAsync(requestUrl);
 
-            var facebookProfile = JsonConvert.DeserializeObject<FacebookProfile>(userJson);
+            var facebookProfile = await Task.Run(() => JsonConvert.DeserializeObject<FacebookProfile>(userJson));
 
             return facebookProfile;
         }
@@ -36,11 +32,10 @@ namespace MyFbApp.Services
             var requestUrl = "https://graph.facebook.com/me/posts?access_token="
                 + _accessToken;
 
-            var httpClient = new HttpClient();
 
-            var userJson = await httpClient.GetStringAsync(requestUrl);
+            var userJson = await _httpCLient.GetStringAsync(requestUrl);
 
-            var facebookUserPosts = JsonConvert.DeserializeObject<FacebookUserPosts>(userJson);
+            var facebookUserPosts = await Task.Run(() => JsonConvert.DeserializeObject<FacebookUserPosts>(userJson));
 
             return facebookUserPosts;
         }
@@ -48,12 +43,10 @@ namespace MyFbApp.Services
             public async Task<FacebookPostComments> GetFacebookPostCommentPost(string Id)
         {
             var requestUrl = "https://graph.facebook.com/" + Id + "/comments?access_token=" + _accessToken;
-            //me/feed?fields=message,story,from,story_tags,comments.summary(true)
-            var httpClient = new HttpClient();
 
-            var userJson = await httpClient.GetStringAsync(requestUrl);
+            var userJson = await _httpCLient.GetStringAsync(requestUrl);
 
-            var facebookpostcomments = JsonConvert.DeserializeObject<FacebookPostComments>(userJson);
+            var facebookpostcomments = await Task.Run(() => JsonConvert.DeserializeObject<FacebookPostComments>(userJson));
 
             return facebookpostcomments;
         }

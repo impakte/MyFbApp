@@ -7,20 +7,19 @@ namespace MyFbApp.ViewModel
 {
     public abstract class BaseViewModel : ViewModelBase
     {
-        /*private bool isBusy = false;
-        private string title = string.Empty;
-
-        public bool IsBusy
+        private bool _isLoading;
+        private bool _isRefreshing = false;
+        public bool IsRefreshing
         {
-            get { return isBusy; }
-            set { Set(ref isBusy, value); }
+            get { return _isRefreshing; }
+            set { Set(ref _isRefreshing, value); }
         }
 
-        public string Title
+        public bool IsLoading
         {
-            get { return title; }
-            set { Set(ref title, value); }
-        }*/
+            get { return _isLoading; }
+            set { Set(ref _isLoading, value); }
+        }
     }
 
     public abstract class BaseViewModel<T> : BaseViewModel, IBaseViewModelParameter<T>

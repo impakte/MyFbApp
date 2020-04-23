@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFbApp.Android", "MyFbApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFbApp.iOS", "MyFbApp\MyFbApp.iOS\MyFbApp.iOS.csproj", "{FA8F9116-B12F-46BF-A628-E7210A162C4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFbApp", "MyFbApp\MyFbApp\MyFbApp.csproj", "{6AC7B664-CF89-4B94-9714-EBB1CFFED6C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyFbApp", "MyFbApp\MyFbApp\MyFbApp.csproj", "{6AC7B664-CF89-4B94-9714-EBB1CFFED6C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

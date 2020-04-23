@@ -47,8 +47,6 @@ namespace MyFbApp.ViewModel
 
         public async Task SetFacebookPostCommentAsync()
         {
-            var fbprofileviewmodel = SimpleIoc.Default.GetInstance<FacebookViewModel>();
-
             _facebookPostComments = await _facebookServices.GetFacebookPostCommentPost(Id);
             this.Comments = this._facebookPostComments.Data;
         }

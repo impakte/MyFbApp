@@ -6,7 +6,7 @@ namespace MyFbApp.Model
 {
     public class FacebookUserPosts
     {
-        public PostsData[] Data { get; set; }
+        public List<PostsData> Data { get; set; }
         public PagingDataPost Paging { get; set; }
         
 
@@ -17,6 +17,7 @@ namespace MyFbApp.Model
         public string Message { get; set; }
         public DateTime Created_time { get; set; }
         public string Id { get; set; }
+        public int CommentsNumber { get; set; }
     }
 
     public class PagingDataPost
