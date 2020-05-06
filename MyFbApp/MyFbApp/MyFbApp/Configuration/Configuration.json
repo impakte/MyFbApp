@@ -2,8 +2,9 @@
 	"FacebookAuthUrl": "https://www.facebook.com/dialog/oauth/",
 	"FacebookRedirectUrl": "https://www.facebook.com/connect/login_success.html",
 	"FacebookAppId": "545621829700082",
+	"FacebookAppSecret":"22c72da3ffc9d3becdfec8f024216364",
 	"Scope": "email",
-	"getFbProfile": "https://graph.facebook.com/me/?fields=name,picture,cover,age_range,birthday,email,first_name,last_name&access_token=",
-	"getFbUserPosts": "https://graph.facebook.com/me/posts?access_token=",
-	"getFbUserPostComments": "/comments?access_token="
+	"FbProfileUrl": "https://graph.facebook.com/me/?fields=name,picture,cover,age_range,birthday,email,first_name,last_name&access_token=",
+	"FbUserPostUrl": "https://graph.facebook.com/me/posts?access_token=",
+	"FbUserPostCommentsUrl": "/comments?access_token="
 }

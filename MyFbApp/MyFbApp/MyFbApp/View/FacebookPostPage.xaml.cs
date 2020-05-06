@@ -11,6 +11,7 @@ using MyFbApp.Model;
 using MyFbApp.ViewModel;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
+using MyFbApp.DataBaseModels;
 
 namespace MyFbApp.View
 {
@@ -20,12 +21,12 @@ namespace MyFbApp.View
         private readonly PostDetailViewModel viewModel;
 
 
-        public FacebookPostPage(PostsData fbpost)
+        public FacebookPostPage(FacebookPostsDb fbpost)
         {
             InitializeComponent();
             BindingContext = this.viewModel = SimpleIoc.Default.GetInstance<PostDetailViewModel>();
 
-            this.viewModel.Id = fbpost.Id;
+            this.viewModel.Id = fbpost.PostsId;
             LabelMessage.Text = fbpost.Message;
             LabelDatePost.Text = "Publié le :"  + fbpost.Created_time.ToString();
         }

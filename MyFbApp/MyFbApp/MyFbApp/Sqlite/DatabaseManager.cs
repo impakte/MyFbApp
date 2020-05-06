@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using MyFbApp.DataBaseModels;
 using MyFbApp.Model;
 using SQLite;
+using Xamarin.Forms.Internals;
+using Xamarin.Forms.Xaml;
 
 namespace MyFbApp.Sqlite
 {
 
     class DatabaseManager
     {
-        private readonly string _dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyDB.db3");
         private SQLiteConnection _dbConnection = new SQLiteConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyDB.db3"));
 
         public DatabaseManager()
@@ -22,23 +24,42 @@ namespace MyFbApp.Sqlite
         {
             _dbConnection.CreateTable<FacebookProfileDb>();
             _dbConnection.CreateTable<FacebookPostsDb>();
-            //_dbConnection.CreateTable<FacebookPostCommentsDb>();
+            _dbConnection.CreateTable<TokenDb>();
         }
 
-        public void UpdateData(FacebookProfile profile, List<PostsData> posts)
+        public bool CheckToken()
         {
-            UpdateProfile(profile);
-            UpdatePosts(posts);
+            return (_dbConnection.Table<TokenDb>().Count() > 0);
         }
+
+        public string getLongLiveToken()
+        {
+            return (_dbConnection.Table<TokenDb>().First().LongLiveToken);
+        }
+
+        public void UpdateLongLiveToken(string token)
+        {
+            _dbConnection.DeleteAll<TokenDb>();
+            var maxPrimaryKey = _dbConnection.Table<TokenDb>().OrderByDescending(c => c.Id).FirstOrDefault();
+            TokenDb tokens = new TokenDb
+            {
+                Id = (maxPrimaryKey == null ? 1 : maxPrimaryKey.Id + 1),
+                LongLiveToken =token
+            };
+            _dbConnection.Insert(tokens);
+        }
+
         public void UpdateProfile(FacebookProfile profile)
         {
-            _dbConnection.DeleteAll<FacebookProfileDb>();
+            if (CheckUser(profile.Id))
+                _dbConnection.Execute("DELETE FROM FacebookProfileDb WHERE UserId = ?", profile.Id);
             var maxPrimaryKey = _dbConnection.Table<FacebookProfileDb>().OrderByDescending(c => c.Id).FirstOrDefault();
             FacebookProfileDb dbprofile = new FacebookProfileDb()
             {
                 Id = (maxPrimaryKey == null ? 1 : maxPrimaryKey.Id + 1),
                 Name = profile.Name,
-                TimeStamp = DateTime.Now
+                TimeStamp = DateTime.Now,
+                UserId = profile.Id
             };
 
             _dbConnection.Insert(dbprofile);
@@ -46,7 +67,9 @@ namespace MyFbApp.Sqlite
 
         public void UpdatePosts(List<PostsData> posts)
         {
-            _dbConnection.DeleteAll<FacebookPostsDb>();
+            string UserId = posts[0].Id.Substring(0, 16);
+            if (CheckPostUser(UserId))
+                _dbConnection.Execute("DELETE FROM FacebookPostsDb WHERE UserId = ?", UserId);
             foreach (PostsData post in posts)
             {
                 var maxPrimaryKey = _dbConnection.Table<FacebookPostsDb>().OrderByDescending(c => c.Id).FirstOrDefault();
@@ -57,23 +80,44 @@ namespace MyFbApp.Sqlite
                     TimeStamp = DateTime.Now,
                     CommentsNumber = post.CommentsNumber,
                     PostsId = post.Id,
-                    Created_time = post.Created_time
+                    Created_time = post.Created_time,
+                    UserId = UserId
                 };
                 _dbConnection.Insert(dbposts);
 
             }
         }
 
-        public FacebookProfileDb getFacebookProfileDb()
+        public async Task<FacebookProfileDb> getFacebookProfileDb()
         {
-            FacebookProfileDb fbProfile = _dbConnection.Table<FacebookProfileDb>().First();
-            return (fbProfile);
+            FacebookProfileDb fbProfile = await Task.Run(() => _dbConnection.Table<FacebookProfileDb>().First());
+            return fbProfile;
         }
 
-        public List<FacebookPostsDb> getFacebookPostsDb()
+        public async Task<List<FacebookPostsDb>> getFacebookPostsDb()
         {
-            List<FacebookPostsDb> fbPosts = _dbConnection.Table<FacebookPostsDb>().ToList();
+            List<FacebookPostsDb> fbPosts = await Task.Run(() => _dbConnection.Table<FacebookPostsDb>().ToList());
             return fbPosts;
+        }
+
+        public bool CheckTimeStamp(string UserId)
+        {
+            return ((DateTime.Compare(_dbConnection.Table<FacebookProfileDb>().Where(w => w.UserId == UserId).First().TimeStamp, DateTime.Now.AddDays(-5)) > 0));
+        }
+
+        public bool CheckUser(string UserId)
+        {
+            return (_dbConnection.Table<FacebookProfileDb>().Where(w => w.UserId == UserId).Count() > 0);
+        }
+
+        public bool CheckPostUser(string UserId)
+        {
+            return (_dbConnection.Table<FacebookPostsDb>().Where(w => w.UserId == UserId).Count() > 0);
+        }
+
+        public void DeleteToken()
+        {
+            _dbConnection.DeleteAll<TokenDb>();
         }
 
     }

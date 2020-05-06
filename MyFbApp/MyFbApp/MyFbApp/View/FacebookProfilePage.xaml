@@ -13,32 +13,244 @@
             <local:InverseBoolConverter x:Key="ReverseBool" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    <StackLayout x:Name="MainStackLayout"
-                BackgroundColor="White">
 
-        <Image Source="Logo.png"
-               HorizontalOptions="CenterAndExpand"
-               IsVisible="{Binding IsLoading, Converter={StaticResource ReverseBool}}"/>
-
-        <Label Text="{Binding FacebookProfile.Name, StringFormat='Utilisateur: {0:N}'}"
-               TextColor="Black"
-               Font="Bold"
-               FontSize="22"
-               HorizontalOptions="CenterAndExpand"
-               IsVisible="{Binding IsLoading, Converter={StaticResource ReverseBool}}"/>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="logout.png" Text="Deconnexion" Clicked="Search_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <Grid x:Name="MainStackLayout"
+          RowSpacing="1"
+          ColumnSpacing="1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <ActivityIndicator IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
-            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Color="Blue" Scale="0.5"/>
-        <StackLayout Padding="8,30"
-                 BackgroundColor="LightGray"
-                     IsVisible="{Binding IsLoading, Converter={StaticResource ReverseBool}}">
-            <ListView x:Name="PostsView"
-                          ItemsSource="{Binding Posts}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Scale="4"
+                           Color="#0078FF"/>
+
+        <ListView x:Name="PostsView"
+                          ItemsSource="{Binding PostsDb}"
                           ItemTapped="PostsView_ItemTapped"
                           HasUnevenRows ="True"
                           BackgroundColor="LightGray"
                           IsPullToRefreshEnabled="True"
                           RefreshCommand="{Binding RefreshCommand}"
-                          IsRefreshing="{Binding IsRefreshing}">
+                          IsRefreshing="{Binding IsRefreshing}"
+                          Grid.Row="0"
+                          Grid.Column="0"
+                          IsVisible="{Binding IsLoading, Converter={StaticResource ReverseBool}}">
+            
+                <ListView.Header>
+                <Grid x:Name="Header"
+                      BackgroundColor="White"
+                      RowSpacing="1"
+                      ColumnSpacing="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame CornerRadius="10"
+                           BackgroundColor="Black"
+                           HeightRequest="150"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Grid.RowSpan="2"
+                           VerticalOptions="Start"
+                           Margin="10,5,10,0"/>
+                    <Frame CornerRadius="100"
+                           HeightRequest="150"
+                           WidthRequest="150"
+                           HorizontalOptions="Center"
+                           IsClippedToBounds="True"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           VerticalOptions="EndAndExpand">
+                        <Image Source="Logo.png"
+                          HorizontalOptions="Center"/>
+                    </Frame>
+                    <Label Text="Antoine CAFFIER"
+                           Grid.Row="2"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           HorizontalOptions="CenterAndExpand"
+                           FontSize="30"
+                           Margin="0,15,0,10"/>
+                    <Button Text="Ajouter à la story"
+                            TextColor="White"
+                            BackgroundColor="#0078FF"
+                            HorizontalOptions="StartAndExpand"
+                            ImageSource="plus.png"
+                            WidthRequest="230"
+                            CornerRadius="15"
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Margin="10,15,0,5"/>
+                    <Button Text="..."
+                            Font="Bold"
+                            FontSize="15"
+                            BackgroundColor="LightGray"
+                            HorizontalOptions="End"
+                            CornerRadius="15"
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Margin="0,15,10,5"/>
+                    <StackLayout Grid.Row="4"
+                                 Grid.Column="0">
+                        <BoxView HeightRequest="1" BackgroundColor="LightGray"
+                             Margin="15,10,15,15"/>
+                    <!-- Faire Une ListView qui prend en source une liste d'école en dure-->
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="20">
+                            <Image Source="school.png"
+                           HorizontalOptions="Start"
+                           Margin="10,20,0,0"/>
+                            <Label Text="A étudié à EPITECH"
+                                    TextColor="Black"
+                                    FontSize="18"
+                                    VerticalOptions="End"
+                                    FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="20">
+                            <Image Source="school.png"
+                           HorizontalOptions="Start"
+                           Margin="10,10,0,0"/>
+                            <Label Text="A étudié à Lycée saint odile"
+                           TextColor="Black"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           Margin="0,15,0,0"/>
+                        </StackLayout>
+                        <!--    -->
+                        <StackLayout Orientation="Horizontal"
+                                     Spacing="20">
+                            <Label Text="..."
+                           HorizontalOptions="Start"
+                           VerticalOptions="Start"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="LightGray"
+                           Margin="10,0,0,0"/>
+                    <Label Text="Voir vos informations à propos"
+                           TextColor="Black"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           Margin="0,20,0,0"/>
+                        </StackLayout>
+                        <Button Text="Modifier les informations publiques"
+                            BackgroundColor="#E9F2FF"
+                            TextColor="#0078FF"
+                            CornerRadius="15"
+                            Margin="10,15,10,0"/>
+                    <BoxView HeightRequest="1" BackgroundColor="LightGray"
+                             Margin="15,10,15,5"/>
+                        <Grid x:Name="NewPostGrid"
+                                RowSpacing="1"
+                                ColumnSpacing="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   Text="Publications"
+                                   TextColor="Black"
+                                   FontSize="22"
+                                   FontAttributes="Bold"
+                                   Margin="10,0,0,0"/>
+                            <Button Grid.Row="0"
+                                   Grid.Column="2"
+                                   ImageSource="filtres.png"
+                                    HorizontalOptions="StartAndExpand"
+                                    HeightRequest="20"
+                                    WidthRequest="55"
+                                    CornerRadius="15"/>
+                            <Button Grid.Row="0"
+                                   Grid.Column="2"
+                                   ImageSource="settings.png"
+                                    HorizontalOptions="EndAndExpand"
+                                    HeightRequest="20"
+                                    WidthRequest="55"
+                                    CornerRadius="15"/>
+                            <Frame CornerRadius="100"
+                                   HeightRequest="25"
+                                   WidthRequest="25"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Start"
+                                   IsClippedToBounds="True"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   BorderColor="White"
+                                   Margin="5,0,0,0">
+                                <Image Source="Logo_small.png"/>
+                            </Frame>
+                            <Entry Text="Que voulez-vous dire ?"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="2"
+                                   Grid.Row="1"
+                                   Grid.RowSpan="2"
+                                   FontSize="18"
+                                   TextColor="Gray"
+                                   VerticalOptions="Center"/>
+                            <Button Text="En direct"
+                                    FontSize="12"
+                                    ImageSource="camera.png"
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    BackgroundColor="White"/>
+                            <Button Text="Photo"
+                                    FontSize="12"
+                                    ImageSource="pictures.png"
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    BackgroundColor="White"/>
+                            <Button Text="Evenement"
+                                    FontSize="12"
+                                    ImageSource="flag.png"
+                                    Grid.Row="2"
+                                    Grid.Column="2"
+                                    BackgroundColor="White"/>
+                        </Grid>
+                        <BoxView HeightRequest="10" BackgroundColor="LightGray"
+                             Margin="0,10,0,10"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Button Text="Photos"
+                                    ImageSource="pictures.png"
+                                    BackgroundColor="Transparent"/>
+                            <Button Text="Evenements marquants"
+                                    ImageSource="pictures.png"
+                                    BackgroundColor="Transparent"/>
+                            <Button Text="Musique"
+                                    ImageSource="pictures.png"
+                                    BackgroundColor="Transparent"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </ListView.Header>
+            
                 <ListView.ItemTemplate>
                     <DataTemplate>
                     <ViewCell Height="200">
@@ -61,7 +273,7 @@
                             <Image Source="Logo_small.png"
                                    HorizontalOptions="CenterAndExpand"
                                     Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
-                            <Label Text="{Binding FacebookProfile.Name}"
+                                <Label Text="{Binding FacebookProfileDb.Name}"
                                        FontSize="16"
                                        HorizontalOptions="CenterAndExpand"
                                     Grid.Row="0" Grid.Column="1"/>
@@ -72,25 +284,29 @@
                             <Label Text="{Binding Message}" 
                                        FontSize="20"
                                        HorizontalOptions="StartAndExpand"
-                                   Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"/>
-                                <Label Text="{Binding CommentsNumber, StringFormat='{0} commentaire'}"
+                                   Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
+                                   Margin="15,0,0,0"/>
+                            <Label Text="{Binding CommentsNumber, StringFormat='{0} commentaire(s)'}"
                                    FontSize="12"
                                    Grid.Row="3" Grid.Column="2"/>
                             <Button Text="Like"
-                                    FontSize="6"
+                                    ImageSource="like.png"
+                                    FontSize="10"
                                     HorizontalOptions="StartAndExpand"
-                                    Grid.Row="4" Grid.Column="0"/>
+                                    Grid.Row="4" Grid.Column="0"
+                                    BackgroundColor="White"
+                                    BorderColor="White"/>
                             <Button Text="Commenter"
-                                    FontSize="6"
+                                    ImageSource="comment.png"
+                                    FontSize="10"
                                         HorizontalOptions="EndAndExpand"
-                                    Grid.Row="4" Grid.Column="2"/>
+                                    Grid.Row="4" Grid.Column="2"
+                                    BackgroundColor="White"
+                                    BorderColor="White"/>
                         </Grid>
                     </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
-
-        </StackLayout>
-    </StackLayout>
+    </Grid>
 </ContentPage>

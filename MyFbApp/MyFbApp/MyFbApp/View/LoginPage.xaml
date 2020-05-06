@@ -3,17 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:MyFbApp.Logic"
              mc:Ignorable="d"
              x:Class="MyFbApp.View.LoginPage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:InverseBoolConverter x:Key="ReverseBool" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout>
+            <ActivityIndicator IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Scale="4"
+                           Color="#0078FF"/>
             <Button Text="Se connecter avec Facebook"
             TextColor="White"
             BackgroundColor="#01579B"
             Font="Bold"
             FontSize="26"
             Clicked="LoginWithFacebook_Clicked"
-            VerticalOptions="CenterAndExpand"/>
+            VerticalOptions="CenterAndExpand"
+            IsVisible="{Binding IsLoading, Converter={StaticResource ReverseBool}}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

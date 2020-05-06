@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using MyFbApp.Model;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
+using MyFbApp.DataBaseModels;
 
 namespace MyFbApp.View
 {
@@ -17,28 +18,32 @@ namespace MyFbApp.View
 
     public partial class FacebookProfilePage : ContentPage
     {
-        private readonly FacebookViewModel viewModel;
+        private readonly FacebookViewModel _viewModel;
 
         public FacebookProfilePage()
         {
             InitializeComponent();
-            BindingContext = this.viewModel = SimpleIoc.Default.GetInstance<FacebookViewModel>();
+            BindingContext = _viewModel = SimpleIoc.Default.GetInstance<FacebookViewModel>();
             Content = MainStackLayout;
         }
 
-        //OnNavigatedTo
         private void PostsView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var content = e.Item as PostsData;
-            var command = this.viewModel.GoToPostDetailsCommand;
+            var content = e.Item as FacebookPostsDb;
+            var command = _viewModel.GoToPostDetailsCommand;
             command.Execute(content);
+        }
+
+        private void Search_Clicked(object sender, EventArgs args) 
+        {
+            _viewModel.GoToLoginCommand.Execute(null);
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             
-            this.viewModel.LoadContent.Execute(null);
+            _viewModel.LoadContent.Execute(null);
         }
     }
 }

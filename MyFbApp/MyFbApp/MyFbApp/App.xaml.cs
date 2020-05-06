@@ -8,7 +8,7 @@ using MyFbApp.Services;
 using GalaSoft.MvvmLight.Views;
 using MyFbApp.Configuration;
 using MyFbApp.Sqlite;
-
+using MyFbApp.Logic;
 
 namespace MyFbApp
 {
@@ -28,8 +28,13 @@ namespace MyFbApp
             var configLoader = new ConfigurationLoader();
             configLoader.LoadConfig();
 
-            var dbmanager = new DatabaseManager();
-            dbmanager.CreateTables();
+            SimpleIoc.Default.Register<DatabaseManager>();
+            //DatabaseManager dbmanager = SimpleIoc.Default.GetInstance<DatabaseManager>();
+            //DANS LE ONSTART
+            //dbmanager.CreateTables();
+
+            SimpleIoc.Default.Register<UserProfileLogic>();
+            SimpleIoc.Default.Register<LoginLogic>();
 
             var firstPage = new NavigationPage(new LoginPage());
             nav.Initialize(firstPage);
@@ -39,6 +44,9 @@ namespace MyFbApp
         protected override void OnStart()
         {
             // Handle when your app starts
+            DatabaseManager dbmanager = SimpleIoc.Default.GetInstance<DatabaseManager>();
+            //DANS LE ONSTART
+            dbmanager.CreateTables();
         }
 
         protected override void OnSleep()

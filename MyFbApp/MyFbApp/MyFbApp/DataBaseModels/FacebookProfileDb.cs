@@ -6,14 +6,14 @@ using SQLite;
 
 namespace MyFbApp.DataBaseModels
 {
-    class FacebookProfileDb
+    public class FacebookProfileDb
     {
         [PrimaryKey]
         public int Id { get; set; }
         public DateTime TimeStamp { get; set; }
 
         public string Name { get; set; }
-        //public string FirstName { get; set; }
-        //public string LastName { get; set; }
+
+        public string UserId { get; set; }
     }
 }

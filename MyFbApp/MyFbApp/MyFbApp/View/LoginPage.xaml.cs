@@ -27,5 +27,12 @@ namespace MyFbApp.View
             var presenter = new Xamarin.Auth.Presenters.OAuthLoginPresenter();
             presenter.Login(viewModel.Authenticator);
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            this.viewModel.ConnectVerification.Execute(null);
+        }
     }
 }

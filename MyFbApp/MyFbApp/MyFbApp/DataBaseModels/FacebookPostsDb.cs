@@ -5,7 +5,7 @@ using SQLite;
 
 namespace MyFbApp.DataBaseModels
 {
-    class FacebookPostsDb
+    public class FacebookPostsDb
     {
         [PrimaryKey]
         public int Id { get; set; }
@@ -14,5 +14,6 @@ namespace MyFbApp.DataBaseModels
         public DateTime Created_time { get; set; }
         public string PostsId { get; set; }
         public int CommentsNumber { get; set; }
+        public string UserId { get; set; }
     }
 }

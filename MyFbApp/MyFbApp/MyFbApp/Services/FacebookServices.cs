@@ -5,18 +5,31 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using MyFbApp.Model;
+using MyFbApp.Sqlite;
+using GalaSoft.MvvmLight.Ioc;
+using MyFbApp.Configuration;
 
 namespace MyFbApp.Services
 {
     class FacebookServices
     {
         private string _accessToken;
+        private DatabaseManager _dbmanager;
         private HttpClient _httpCLient = new HttpClient();
+        private readonly IConfiguration _config;
+
+
+        public FacebookServices(IConfiguration configuration)
+        {
+            if (configuration == null) throw new ArgumentNullException("Configuration");
+            _config = configuration;
+            _dbmanager = SimpleIoc.Default.GetInstance<DatabaseManager>();
+        }
 
         public async Task<FacebookProfile> GetFacebookProfileAsync()
         {
             var requestUrl =
-                "https://graph.facebook.com/me/?fields=name,picture,cover,age_range,birthday,email,first_name,last_name&access_token="
+                "https://graph.facebook.com/me/?fields=id,name,picture,cover,age_range,birthday,email,first_name,last_name&access_token="
                 + _accessToken;
 
 
@@ -40,7 +53,7 @@ namespace MyFbApp.Services
             return facebookUserPosts;
         }
 
-            public async Task<FacebookPostComments> GetFacebookPostCommentPost(string Id)
+        public async Task<FacebookPostComments> GetFacebookPostCommentPost(string Id)
         {
             var requestUrl = "https://graph.facebook.com/" + Id + "/comments?access_token=" + _accessToken;
 
@@ -51,9 +64,38 @@ namespace MyFbApp.Services
             return facebookpostcomments;
         }
 
-        public void SetAccessToken(string Token)
+        public async Task<bool> CheckTokenValidity()
+        {
+            var requestUrl = "https://graph.facebook.com/me?access_token=" + _dbmanager.getLongLiveToken();
+
+            var checkJson = await _httpCLient.GetStringAsync(requestUrl);
+
+            if (checkJson.Contains("name"))
+            {
+                _accessToken = _dbmanager.getLongLiveToken();
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public async Task<Token> getLongLiveToken(string token)
+        {
+            var requestUrl = "https://graph.facebook.com/oauth/access_token?client_id="+ _config.facebookAppId + 
+                "&client_secret=" + _config.facebookAppSecret + 
+                "&grant_type=fb_exchange_token&fb_exchange_token=" + token;
+
+            var tokenJson = await _httpCLient.GetStringAsync(requestUrl);
+
+            var newToken = await Task.Run(() => JsonConvert.DeserializeObject<Token>(tokenJson));
+
+            _accessToken = newToken.access_token;
+            return (newToken);
+        }
+
+        /*public void SetAccessToken(string Token)
         {
             _accessToken = Token;
-        }
+        }*/
     }
 }
