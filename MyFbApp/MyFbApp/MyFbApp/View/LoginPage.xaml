@@ -12,14 +12,24 @@
             <local:InverseBoolConverter x:Key="ReverseBool" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ContentPage.Content>
-        <StackLayout>
-            <ActivityIndicator IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Center"
-                           Scale="4"
-                           Color="#0078FF"/>
+        <Grid x:Name="MainStackLayout"
+          RowSpacing="1"
+          ColumnSpacing="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ActivityIndicator IsVisible ="{Binding IsLoading}"  IsRunning="{Binding IsLoading}"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                Scale="4"
+                                Color="#0078FF"
+                                Grid.Row="0"
+                                Grid.Column="0"/>
             <Button Text="Se connecter avec Facebook"
             TextColor="White"
             BackgroundColor="#01579B"
@@ -27,7 +37,10 @@
             FontSize="26"
             Clicked="LoginWithFacebook_Clicked"
             VerticalOptions="CenterAndExpand"
-            IsVisible="{Binding IsLoading, Converter={StaticResource ReverseBool}}"/>
-        </StackLayout>
+            IsVisible="{Binding IsLoading, Converter={StaticResource ReverseBool}}"
+            Grid.Row="0"
+            Grid.Column="0"/>
+            
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

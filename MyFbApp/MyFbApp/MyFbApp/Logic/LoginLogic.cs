@@ -21,7 +21,7 @@ namespace MyFbApp.Logic
             _facebookServices = SimpleIoc.Default.GetInstance<FacebookServices>();
         }
 
-        private async Task<bool> checkToken()
+        public async Task<bool> CheckToken()
         {
             if (_dbmanager.CheckToken())
             {
@@ -30,11 +30,6 @@ namespace MyFbApp.Logic
             }
             else
                 return false;
-        }
-
-        public async Task<bool> getToken()
-        {
-            return (await checkToken());
         }
 
         public async Task SetTokenAsync(string token)

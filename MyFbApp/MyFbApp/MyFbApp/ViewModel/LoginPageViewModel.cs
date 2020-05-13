@@ -13,6 +13,7 @@ using MyFbApp.Configuration;
 using AsyncAwaitBestPractices.MVVM;
 using System.Threading.Tasks;
 using MyFbApp.Logic;
+using System.Threading;
 
 namespace MyFbApp.ViewModel
 {
@@ -44,14 +45,14 @@ namespace MyFbApp.ViewModel
                  null);
             Authenticator.Completed += OnAuthenticationCompleted;
             Authenticator.Error += OnAuthenticationFailed;
-            this._loginLogic = SimpleIoc.Default.GetInstance<LoginLogic>();
+            _loginLogic = SimpleIoc.Default.GetInstance<LoginLogic>();
             this.ConnectVerification = new AsyncCommand(() => TokenVerification());
         }
 
         public async Task TokenVerification()
         {
             IsLoading = true;
-            if (await _loginLogic.getToken())
+            if (await _loginLogic.CheckToken())
                 NavigateCommand.Execute(null);
             IsLoading = false;
         }

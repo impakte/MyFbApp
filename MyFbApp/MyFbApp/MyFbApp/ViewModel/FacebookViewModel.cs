@@ -10,6 +10,8 @@ using MyFbApp.Navigation;
 using Xamarin.Forms;
 using MyFbApp.DataBaseModels;
 using MyFbApp.Logic;
+using GalaSoft.MvvmLight.Messaging;
+using System.Xml;
 
 namespace MyFbApp.ViewModel
 {
@@ -42,23 +44,23 @@ namespace MyFbApp.ViewModel
             if (navigationService == null) throw new ArgumentNullException("navigationService");
             _navigationService = navigationService;
 
-            //this.LoadContent = new AsyncCommand(() => SetFacebookProfileContent());
             this.LoadContent = new AsyncCommand(() => SetData());
             this._profilLogic = SimpleIoc.Default.GetInstance<UserProfileLogic>();
+            Messenger.Default.Register<NotificationMessage>(this, SetDataUpdated);
         }
 
-        /*public async Task SetFacebookProfileContent()
+        private async void SetDataUpdated(NotificationMessage msg)
         {
-            IsLoading = true;
-            if (await _profilLogic.CheckDatabaseData())
+            switch (msg.Notification)
             {
-                await SetData();
-                IsLoading = false;
+                case "ProfileUpdated":
+                    FacebookProfileDb = await _profilLogic.GetProfileFromDb();
+                    break;
+                case "UserPostUpdated":
+                    PostsDb = await _profilLogic.GetPostFromDb();
+                    break;
             }
-            //await _profilLogic.UpdateData();
-            await SetData();
-            IsLoading = false;
-        }*/
+        }
 
         public async Task SetData()
         {

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using MyFbApp.DataBaseModels;
 using MyFbApp.Sqlite;
 using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Views;
 using System.Threading.Tasks;
 using MyFbApp.Model;
 using MyFbApp.Services;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace MyFbApp.Logic
 {
@@ -70,32 +68,69 @@ namespace MyFbApp.Logic
             return (_dbmanager.CheckPostUser(_facebookProfile.Id) && _dbmanager.CheckTimeStamp(_facebookProfile.Id));
         }
 
-        private async Task UpdateProfileApi()
+        private async Task UpdateProfileApi(bool needSendMsg)
         {
             await SetFacebookUserProfileAsync();
             _dbmanager.UpdateProfile(_facebookProfile);
+            if (needSendMsg)
+            {
+                var myMessage = new NotificationMessage("ProfileUpdated");
+                Messenger.Default.Send(myMessage);
+            }
         }
 
-        private async Task UpdateUserPostsApi()
+        private async Task UpdateUserPostsApi(bool needSendMsg)
         {
             await SetFacebookUserPostsAsync();
             _dbmanager.UpdatePosts(_facebookUserPosts.Data);
+            if (needSendMsg)
+            {
+                var myMessage = new NotificationMessage("UserPostUpdated");
+                Messenger.Default.Send(myMessage);
+            }
         }
 
         public async Task<FacebookProfileDb> GetProfileData()
         {
-            if (!await CheckUserProfileData())
+            /*if (!await CheckUserProfileData())
                 await UpdateProfileApi();
             FacebookProfileDb FbProfile = await _dbmanager.getFacebookProfileDb();
-            return (FbProfile);
+            //CALL API DO UPDATE DATA ASYNC
+            return (FbProfile);*/
+
+            if (await CheckUserProfileData())
+            {
+                FacebookProfileDb FbProfile = await _dbmanager.getFacebookProfileDb();
+                UpdateProfileApi(true);
+                return (FbProfile);
+            }
+            else
+            {
+                await UpdateProfileApi(false);
+                FacebookProfileDb FbProfile = await _dbmanager.getFacebookProfileDb();
+                return (FbProfile);
+            }
         }
 
         public async Task<List<FacebookPostsDb>> GetPostData()
         {
-            if (!await CheckUserPostData())
+            /*if (!await CheckUserPostData())
                 await UpdateUserPostsApi();
             List<FacebookPostsDb> FbPosts = await _dbmanager.getFacebookPostsDb();
-            return (FbPosts);
+            return (FbPosts);*/
+
+            if (await CheckUserPostData())
+            {
+                List<FacebookPostsDb> FbPosts = await _dbmanager.getFacebookPostsDb();
+                await UpdateUserPostsApi(true);
+                return (FbPosts);
+            }
+            else
+            {
+                await UpdateUserPostsApi(false);
+                List<FacebookPostsDb> FbPosts = await _dbmanager.getFacebookPostsDb();
+                return (FbPosts);
+            }
         }
 
         private async Task SetFacebookUserProfileAsync()
@@ -112,6 +147,16 @@ namespace MyFbApp.Logic
                 _facebookPostComments = await _facebookServices.GetFacebookPostCommentPost(pd.Id);
                 pd.CommentsNumber = _facebookPostComments.Data.Count;
             }
+        }
+
+        public async Task<FacebookProfileDb> GetProfileFromDb()
+        {
+            return (await _dbmanager.getFacebookProfileDb());
+        }
+
+        public async Task<List<FacebookPostsDb>> GetPostFromDb()
+        {
+            return (await _dbmanager.getFacebookPostsDb());
         }
 
         public void DeleteToken()
