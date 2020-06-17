@@ -4,13 +4,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MyFbApp.ViewModel;
+using MyFbAppLib.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using MyFbApp.Model;
+using MyFbAppLib.Model;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
-using MyFbApp.DataBaseModels;
+using MyFbAppLib.DataBaseModels;
 
 namespace MyFbApp.View
 {

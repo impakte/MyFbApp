@@ -7,11 +7,11 @@ using System.Windows.Input;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using MyFbApp.Model;
-using MyFbApp.ViewModel;
+using MyFbAppLib.Model;
+using MyFbAppLib.ViewModel;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
-using MyFbApp.DataBaseModels;
+using MyFbAppLib.DataBaseModels;
 
 namespace MyFbApp.View
 {

@@ -1,14 +1,15 @@
 ﻿using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using MyFbApp.View;
 using MyFbApp.Navigation;
+using MyFbAppLib.ViewModel;
 using GalaSoft.MvvmLight.Ioc;
-using MyFbApp.Services;
 using GalaSoft.MvvmLight.Views;
-using MyFbApp.Configuration;
-using MyFbApp.Sqlite;
-using MyFbApp.Logic;
+using MyFbAppLib.Sqlite;
+using MyFbAppLib.Logic;
+using MyFbAppLib.Navigation;
+
+using MyFbAppFSharp;
 
 namespace MyFbApp
 {
@@ -17,25 +18,16 @@ namespace MyFbApp
         public App()
         {
             InitializeComponent();
-            ViewModel.Bootstrap.Instance.Setup();
+            Bootstrap.Instance.Setup();
 
             var nav = new NavigationService();
             nav.Configure(Locator.LoginPage, typeof(LoginPage));
             nav.Configure(Locator.FacebookPostPage, typeof(FacebookPostPage));
             nav.Configure(Locator.FacebookProfilePage, typeof(FacebookProfilePage));
             SimpleIoc.Default.Register<INavigationService>(() => nav);
-            
-            var configLoader = new ConfigurationLoader();
-            configLoader.LoadConfig();
-
             SimpleIoc.Default.Register<DatabaseManager>();
-            //DatabaseManager dbmanager = SimpleIoc.Default.GetInstance<DatabaseManager>();
-            //DANS LE ONSTART
-            //dbmanager.CreateTables();
-
             SimpleIoc.Default.Register<UserProfileLogic>();
             SimpleIoc.Default.Register<LoginLogic>();
-
             var firstPage = new NavigationPage(new LoginPage());
             nav.Initialize(firstPage);
             MainPage = firstPage;
