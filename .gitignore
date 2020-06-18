@@ -1,3 +1,5 @@
-﻿MyFbApp/.vs
+MyFbApp/.vs
 MyFbApp/MyFbApp/MyFbApp/bin
 MyFbApp/MyFbApp/MyFbApp/obj
+bin/
+obj/
