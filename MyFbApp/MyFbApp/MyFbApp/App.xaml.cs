@@ -37,8 +37,8 @@ namespace MyFbApp
         {
             // Handle when your app starts
             DatabaseManager dbmanager = SimpleIoc.Default.GetInstance<DatabaseManager>();
-            //DANS LE ONSTART
             dbmanager.CreateTables();
+            //databaseManager.CreateTables();
         }
 
         protected override void OnSleep()
