@@ -6,7 +6,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using MyFbApp.Services;
+using MyFbAppLib.Configuration;
+using System.Reflection;
+using MyFbApp.Navigation;
 
 namespace MyFbApp.Droid
 {
@@ -23,6 +25,11 @@ namespace MyFbApp.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             global::Xamarin.Auth.Presenters.XamarinAndroid.AuthenticationConfiguration.Init(this, savedInstanceState);
+
+            var configLoader = new ConfigurationLoader();
+            var embeddedResourceStream = Assembly.GetAssembly(typeof(NavigationService)).GetManifestResourceStream("MyFbApp.Configuration.Configuration.json");
+            configLoader.LoadConfig(embeddedResourceStream);
+
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
